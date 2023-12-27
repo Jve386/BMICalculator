@@ -7,4 +7,5 @@
     <string name="weight">Peso</string>
     <string name="age">Edad</string>
     <string name="calculate">Calcular</string>
+    <string name="title_activity_imc_evaluation">IMC_evaluation</string>
 </resources>

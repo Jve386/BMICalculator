@@ -2,6 +2,8 @@ package com.jve386.bmicalculator.view
 
 import android.content.res.ColorStateList
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.cardview.widget.CardView
@@ -20,6 +22,7 @@ class MainActivity : ComponentActivity() {
     private var isFemaleSelected: Boolean = false
     private var currentWeight: Int = 60
     private var currentAge: Int = 25
+    private var currentHeight: Int = 120
 
     private lateinit var viewMale: CardView
     private lateinit var viewFemale: CardView
@@ -30,7 +33,8 @@ class MainActivity : ComponentActivity() {
     private lateinit var tvWeight: TextView
     private lateinit var btnPlusAge: FloatingActionButton
     private lateinit var btnSubtractAge: FloatingActionButton
-    private lateinit var tvAge:TextView
+    private lateinit var tvAge: TextView
+    private lateinit var btnCalculate: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,18 +50,26 @@ class MainActivity : ComponentActivity() {
         viewFemale = findViewById(R.id.viewFemale)
         tvHeight = findViewById(R.id.tvHeight)
         rsHeight = findViewById(R.id.rsHeight)
+
         //added bg directly to variable to fix a bug with float buttons
         btnSubtractWeight = findViewById(R.id.btnSubtractWeight)
-        btnSubtractWeight.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.background_fab))
+        btnSubtractWeight.backgroundTintList =
+            ColorStateList.valueOf(ContextCompat.getColor(this, R.color.background_fab))
         btnPlusWeight = findViewById(R.id.btnPlusWeight)
-        btnPlusWeight.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.background_fab))
+        btnPlusWeight.backgroundTintList =
+            ColorStateList.valueOf(ContextCompat.getColor(this, R.color.background_fab))
         tvWeight = findViewById(R.id.tvWeight)
 
+        //added bg directly to variable to fix a bug with float buttons
         btnSubtractAge = findViewById(R.id.btnSubtractAge)
-        btnSubtractAge.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.background_fab))
+        btnSubtractAge.backgroundTintList =
+            ColorStateList.valueOf(ContextCompat.getColor(this, R.color.background_fab))
         btnPlusAge = findViewById(R.id.btnPlusAge)
-        btnPlusAge.backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(this, R.color.background_fab))
+        btnPlusAge.backgroundTintList =
+            ColorStateList.valueOf(ContextCompat.getColor(this, R.color.background_fab))
         tvAge = findViewById(R.id.tvAge)
+
+        btnCalculate = findViewById(R.id.btnCalculate)
 
     }
 
@@ -72,31 +84,42 @@ class MainActivity : ComponentActivity() {
         }
         rsHeight.addOnChangeListener { _, value, _ ->
             val df = DecimalFormat("#.##")
-            val result = df.format(value)
-            tvHeight.text = "$result cm"
+            currentHeight = df.format(value).toInt()
+            tvHeight.text = "$currentHeight cm"
         }
         btnPlusWeight.setOnClickListener {
-            currentWeight ++
+            currentWeight++
             setWeight()
         }
         btnSubtractWeight.setOnClickListener {
-            currentWeight --
+            currentWeight--
             setWeight()
         }
         btnPlusAge.setOnClickListener {
-            currentAge ++
+            currentAge++
             setAge()
         }
         btnSubtractAge.setOnClickListener {
-            currentAge --
+            currentAge--
             setAge()
+        }
+        btnCalculate.setOnClickListener {
+            calculateIMC()
         }
     }
 
-    private fun setWeight(){
+    private fun calculateIMC() {
+        val df = DecimalFormat("#.##")
+        val imc = currentWeight / (currentHeight.toDouble()/100 * currentHeight.toDouble()/100)
+        val result = df.format(imc).toDouble()
+        Log.i("calcJve386", "el imc es $result")
+    }
+
+    private fun setWeight() {
         tvWeight.text = currentWeight.toString()
     }
-    private fun setAge(){
+
+    private fun setAge() {
         tvAge.text = currentAge.toString()
     }
 
