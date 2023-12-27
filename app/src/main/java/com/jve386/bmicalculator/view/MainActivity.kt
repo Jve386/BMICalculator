@@ -1,5 +1,6 @@
 package com.jve386.bmicalculator.view
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Bundle
 import android.util.Log
@@ -36,6 +37,9 @@ class MainActivity : ComponentActivity() {
     private lateinit var tvAge: TextView
     private lateinit var btnCalculate: Button
 
+    companion object {
+        const val IMC_KEY = "IMC_RESULT"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
@@ -104,15 +108,21 @@ class MainActivity : ComponentActivity() {
             setAge()
         }
         btnCalculate.setOnClickListener {
-            calculateIMC()
+            val result = calculateIMC()
+            navigateToResult(result)
         }
     }
 
-    private fun calculateIMC() {
+    private fun navigateToResult(result: Double) {
+        val intent = Intent(this, IMC_evaluation::class.java)
+        intent.putExtra(IMC_KEY, result)
+        startActivity(intent)
+    }
+
+    private fun calculateIMC():Double {
         val df = DecimalFormat("#.##")
         val imc = currentWeight / (currentHeight.toDouble()/100 * currentHeight.toDouble()/100)
-        val result = df.format(imc).toDouble()
-        Log.i("calcJve386", "el imc es $result")
+        return df.format(imc).toDouble()
     }
 
     private fun setWeight() {
@@ -129,10 +139,8 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun setGenderColor() {
-
         viewMale.setCardBackgroundColor(getBackGroundColor(isMaleSelected))
         viewFemale.setCardBackgroundColor(getBackGroundColor(isFemaleSelected))
-
     }
 
     private fun getBackGroundColor(isSelectedComponent: Boolean): Int {
@@ -141,7 +149,6 @@ class MainActivity : ComponentActivity() {
         } else {
             R.color.background_component
         }
-
         return ContextCompat.getColor(this, colorReference)
     }
 

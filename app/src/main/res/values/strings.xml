@@ -8,4 +8,6 @@
     <string name="age">Edad</string>
     <string name="calculate">Calcular</string>
     <string name="title_activity_imc_evaluation">IMC_evaluation</string>
+    <string name="result">Tu resultado</string>
+    <string name="recalculate">Recalcular</string>
 </resources>
