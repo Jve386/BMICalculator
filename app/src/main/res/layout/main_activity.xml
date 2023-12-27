@@ -166,7 +166,7 @@
                 android:textColor="@color/white"
                 android:textSize="38sp"
                 android:textStyle="bold"
-                tools:text="60" />
+                tools:text="70" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"

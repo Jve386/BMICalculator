@@ -39,44 +39,21 @@ class IMC_evaluation : ComponentActivity() {
         btnRecalculate.setOnClickListener { onBackPressed() }
     }
 
+
     private fun initUI(result: Double) {
         tvIMC.text = result.toString()
-        when (result) {
-            in 0.00..18.50 -> { //Bajo peso
-                tvResult.text = getString(R.string.title_lowWeight)
-                tvResult.setTextColor(ContextCompat.getColor(this, R.color.weight_low))
-                tvDescription.text = getString(R.string.description_lowWeight)
-                tvAdvice.text = getString(R.string.advice)
-            }
-
-            in 18.51..24.99 -> { //Peso normal
-                tvResult.text = getString(R.string.title_normalWeight)
-                tvResult.setTextColor(ContextCompat.getColor(this, R.color.weight_normal))
-                tvDescription.text = getString(R.string.description_normalWeight)
-                tvAdvice.text = getString(R.string.advice)
-            }
-
-            in 25.00..29.99 -> { //Sobrepeso
-                tvResult.text = getString(R.string.title_overWeight)
-                tvResult.setTextColor(ContextCompat.getColor(this, R.color.weight_over))
-                tvDescription.text = getString(R.string.description_overWeight)
-                tvAdvice.text = getString(R.string.advice)
-            }
-
-            in 30.00..99.00 -> { //Obesidad
-                tvResult.text = getString(R.string.title_obeseWeight)
-                tvResult.setTextColor(ContextCompat.getColor(this, R.color.weight_obese))
-                tvDescription.text = getString(R.string.description_obeseWeight)
-                tvAdvice.text = getString(R.string.advice)
-            }
-
-            else -> { //error
-                tvIMC.text = getString(R.string.error)
-                tvResult.text = getString(R.string.error)
-                tvDescription.text = getString(R.string.error)
-                tvResult.setTextColor(ContextCompat.getColor(this, R.color.weight_obese))
-            }
+        val (title, textColor, description) = when (result) {
+            in 0.00..18.50 -> Triple(getString(R.string.title_lowWeight), R.color.weight_low, getString(R.string.description_lowWeight))
+            in 18.51..24.99 -> Triple(getString(R.string.title_normalWeight), R.color.weight_normal, getString(R.string.description_normalWeight))
+            in 25.00..29.99 -> Triple(getString(R.string.title_overWeight), R.color.weight_over, getString(R.string.description_overWeight))
+            in 30.00..99.00 -> Triple(getString(R.string.title_obeseWeight), R.color.weight_obese, getString(R.string.description_obeseWeight))
+            else -> Triple(getString(R.string.error), R.color.weight_obese, getString(R.string.error))
         }
+
+        tvResult.text = title
+        tvResult.setTextColor(ContextCompat.getColor(this, textColor))
+        tvDescription.text = description
+        tvAdvice.text = getString(R.string.advice)
     }
 
     private fun initComponents() {
