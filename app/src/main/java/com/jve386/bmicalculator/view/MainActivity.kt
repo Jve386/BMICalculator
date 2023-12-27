@@ -1,5 +1,6 @@
 package com.jve386.bmicalculator.view
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Bundle

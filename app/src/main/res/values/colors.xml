@@ -2,16 +2,32 @@
 <resources>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
+    <color name="purple_700">#132873</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="background_component">#1D1E33</color>
-    <color name="background_component_selected">#FF111328</color>
-    <color name="background_app">#0E0B20</color>
-    <color name="background_button">#EB1555</color>
-    <color name="title_text">#FF8D8E98</color>
-    <color name="background_fab">#FF6200EE</color>
+    <color name="background_component">#082B53</color>
+    <color name="background_component_selected">#1976D2</color>
+    <color name="background_app">#050C17</color>
+    <color name="background_button">#2196F3</color>
+    <color name="title_text">#FFFFFF</color>
+    <color name="RSline">#64B5F6</color>
+    <color name="background_fab">#2196F3</color>
+
+    <!--
+        <color name="background_component">#571A16</color>
+        <color name="background_component_selected">#F44336</color>
+        <color name="background_app">#101012</color>
+        <color name="background_button">#EB1555</color>
+        <color name="title_text">#ACACAC</color>
+        <color name="RSline">#D6857F</color>
+        <color name="background_fab">#F44336</color>
+    -->
+    <color name="weight_low">#FFE500</color>
+    <color name="weight_normal">#00FF19</color>
+    <color name="weight_over">#FA9500</color>
+    <color name="weight_obese">#FF1100</color>
+
 </resources>

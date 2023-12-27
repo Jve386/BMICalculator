@@ -8,6 +8,23 @@
     <string name="age">Edad</string>
     <string name="calculate">Calcular</string>
     <string name="title_activity_imc_evaluation">IMC_evaluation</string>
-    <string name="result">Tu resultado</string>
+    <string name="result">Tu resultado:</string>
     <string name="recalculate">Recalcular</string>
+
+    <string name="error">Error</string>
+
+    <string name="title_lowWeight">Bajo peso</string>
+    <string name="description_lowWeight">Estás por debajo de lo óptimo para tu peso y altura.</string>
+
+    <string name="title_normalWeight">Normal</string>
+    <string name="description_normalWeight">Estás en lo óptimo para tu peso y altura.</string>
+
+    <string name="title_overWeight">Sobrepeso</string>
+    <string name="description_overWeight">Estás por encima de lo óptimo para tu peso y altura.</string>
+
+    <string name="title_obeseWeight">Obesidad</string>
+    <string name="description_obeseWeight">Estás muy por encima de lo óptimo para tu peso y altura.</string>
+
+    <string name="advice">Recuerda que es un dato orientativo.</string>
+
 </resources>
