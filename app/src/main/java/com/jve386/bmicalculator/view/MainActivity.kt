@@ -2,13 +2,7 @@ package com.jve386.bmicalculator.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.cardview.widget.CardView
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.content.ContextCompat
@@ -53,7 +47,7 @@ class MainActivity : ComponentActivity() {
         isFemaleSelected = !isFemaleSelected
     }
 
-    private fun setGenderColor(isViewSelected: Boolean) {
+    private fun setGenderColor() {
 
         viewMale.setCardBackgroundColor(getBackGroundColor(isMaleSelected))
         viewFemale.setCardBackgroundColor(getBackGroundColor(isFemaleSelected))
