@@ -17,7 +17,6 @@ This Android application calculates Body Mass Index (BMI) based on user input fo
 - **Language:** Kotlin
 - **Android Frameworks:** Android SDK, Android Jetpack
 - **UI Components:** XML layout with Material Design components
-- **Architecture:** Model-View-Controller (MVC)
 - **Data Binding:** Android Data Binding Library
 - **Version Control:** Git
 - **Build Tool:** Gradle
@@ -26,13 +25,6 @@ This Android application calculates Body Mass Index (BMI) based on user input fo
 
 ![Screenshot 1](/images/main.jpg)
 ![Screenshot 2](/images/secondScreen.jpg)
-
-
-## Installation
-
-1. Clone the repository.
-2. Open the project in Android Studio.
-3. Build and run on an Android device or emulator.
 
 
 
