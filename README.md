@@ -22,10 +22,11 @@ This Android application calculates Body Mass Index (BMI) based on user input fo
 - **Build Tool:** Gradle
 
 ## Screenshots
-
-![Screenshot 1](/images/main.jpg)
-![Screenshot 2](/images/secondScreen.jpg)
-
-
+<table>
+  <tr>
+    <td align="center">Main screen<br><img src="/images/main.jpg" alt="Screenshot 1"></td>
+    <td align="center">Results screen<br><img src="/images/secondScreen.jpg" alt="Screenshot 2"></td>
+  </tr>
+</table>
 
 Feel free to contribute or report issues!
